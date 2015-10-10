@@ -32,7 +32,7 @@
       "iso_checksum": "9e5fecc94b3925bededed0fdca1bd417",
       "iso_checksum_type": "md5",
 
-      "http_directory" : "files",
+      "http_directory" : "trusty64/htdocs",
       "http_port_min" : 9000,
       "http_port_max" : 9010,
 
@@ -45,7 +45,7 @@
       "boot_command" : [
         "<esc><esc><enter><wait>",
         "/install/vmlinuz noapic ",
-        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/trusty64-preseed.cfg ",
+        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
         "debian-installer=de_DE.UTF-8 auto ",
         "locale=de_DE ",
         "kbd-chooser/method=de ",

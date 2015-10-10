@@ -1,3 +1,6 @@
 /packer_cache
 /output-virtualbox-iso
 /iso
+/build
+/.vagrant
+Vagrantfile

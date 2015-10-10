@@ -10,7 +10,8 @@
     {
       "type": "virtualbox-iso",
       "guest_os_type": "Ubuntu_64",
-      "headless": false,
+      "virtualbox_version_file": ".vbox_version",
+      "headless": true,
       "vboxmanage": [
         [
           "modifyvm", "{{.Name}}",
@@ -29,6 +30,8 @@
       ],
       "iso_checksum": "9e5fecc94b3925bededed0fdca1bd417",
       "iso_checksum_type": "md5",
+      "guest_additions_mode": "upload",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "http_directory" : "{{ user `boxname` }}/htdocs",
       "http_port_min" : 9000,
       "http_port_max" : 9010,
@@ -54,9 +57,34 @@
         "console-setup/ask_detect=false ",
         "initrd=/install/initrd.gz -- <enter>"
       ]
-
     }
+  ],
 
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "{{ user `boxname` }}/provision",
+      "destination": "/tmp"
+    },
+    {
+      "type": "shell",
+      "environment_vars": [
+        "VAGRANT_USER={{ user `vagrant_user_name` }}",
+        "VAGRANT_PASS={{ user `vagrant_user_pass` }}"
+      ],
+      "execute_command": "echo '{{ user `vagrant_user_pass` }}' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "scripts": [
+        "{{ user `boxname` }}/provision.sh"
+      ]
+    }
+  ],
+
+  "post-processors": [
+    {
+      "output": "build/{{ user `boxname` }}.box",
+      "type": "vagrant",
+      "keep_input_artifact": true
+    }
   ]
 
 }

@@ -16,8 +16,15 @@ Usage:
 # inpect template properties
 packer inspect <template>
 
-# build image
-packer build <template>
+# validate template
+packer validate <template>
+
+# build template
+packer build [-force] [-debug] <template>
+
+# test vagrant box
+vagrant init <boxfile>
+vagrant up
 ```
 
 ## Ubuntu *“Trusty Tahr”*

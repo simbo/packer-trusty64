@@ -2,8 +2,8 @@
 
   "variables": {
     "boxname": "trusty64",
-    "user_name": "vagrant",
-    "user_pass": "vagrant"
+    "vagrant_user_name": "vagrant",
+    "vagrant_user_pass": "vagrant"
   },
 
   "builders": [
@@ -29,13 +29,13 @@
       ],
       "iso_checksum": "9e5fecc94b3925bededed0fdca1bd417",
       "iso_checksum_type": "md5",
-      "http_directory" : "{{user `boxname`}}/htdocs",
+      "http_directory" : "{{ user `boxname` }}/htdocs",
       "http_port_min" : 9000,
       "http_port_max" : 9010,
-      "ssh_username": "{{user `user_name`}}",
-      "ssh_password": "{{user `user_pass`}}",
+      "ssh_username": "{{ user `vagrant_user_name` }}",
+      "ssh_password": "{{ user `vagrant_user_pass` }}",
       "ssh_wait_timeout": "20m",
-      "shutdown_command": "echo {{user `user_pass`}} | sudo -S shutdown -P now",
+      "shutdown_command": "echo {{ user `vagrant_user_pass` }} | sudo -S shutdown -P now",
       "boot_wait": "10s",
       "boot_command" : [
         "<esc><esc><enter><wait>",
@@ -44,7 +44,7 @@
         "debian-installer=de_DE.UTF-8 auto ",
         "locale=de_DE ",
         "kbd-chooser/method=de ",
-        "hostname={{user `boxname`}} ",
+        "hostname={{ user `boxname` }} ",
         "fb=false debconf/frontend=noninteractive ",
         "keyboard-configuration/modelcode=pc105 ",
         "keyboard-configuration/layout=German ",

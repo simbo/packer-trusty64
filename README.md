@@ -13,6 +13,9 @@ Requirements:
 Usage:
 
 ``` sh
+# inpect template properties
+packer inspect <template>
+
 # build image
 packer build <template>
 ```

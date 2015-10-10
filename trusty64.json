@@ -7,13 +7,10 @@
   },
 
   "builders": [
-
     {
-
       "type": "virtualbox-iso",
       "guest_os_type": "Ubuntu_64",
       "headless": false,
-
       "vboxmanage": [
         [
           "modifyvm", "{{.Name}}",
@@ -25,25 +22,19 @@
           "--nic1", "nat"
         ]
       ],
-
       "disk_size" : 20000,
-
       "iso_urls": [
         "iso/ubuntu-14.04.3-server-amd64.iso",
         "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso"
       ],
       "iso_checksum": "9e5fecc94b3925bededed0fdca1bd417",
       "iso_checksum_type": "md5",
-
       "http_directory" : "{{user `boxname`}}/htdocs",
       "http_port_min" : 9000,
       "http_port_max" : 9010,
-
       "ssh_username": "{{user `user_name`}}",
       "ssh_password": "{{user `user_pass`}}",
       "ssh_wait_timeout": "20m",
-
-
       "shutdown_command": "echo {{user `user_pass`}} | sudo -S shutdown -P now",
       "boot_wait": "10s",
       "boot_command" : [

@@ -1,0 +1,67 @@
+{
+
+  "variables": {
+    "ssh_name": "vagrant",
+    "ssh_pass": "vagrant",
+    "hostname": "vagrant"
+  },
+
+  "builders": [
+
+    {
+
+      "type": "virtualbox-iso",
+      "guest_os_type": "Ubuntu_64",
+      "headless": false,
+
+      "vboxmanage": [
+        [
+          "modifyvm", "{{.Name}}",
+          "--vram", "32",
+          "--memory", "512",
+          "--cpus", "1",
+          "--usb", "off",
+          "--audio", "none",
+          "--nic1", "nat"
+        ]
+      ],
+
+      "disk_size" : 20000,
+
+      "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso",
+      "iso_checksum": "9e5fecc94b3925bededed0fdca1bd417",
+      "iso_checksum_type": "md5",
+
+      "http_directory" : "files",
+      "http_port_min" : 9000,
+      "http_port_max" : 9010,
+
+      "ssh_username": "{{user `ssh_name`}}",
+      "ssh_password": "{{user `ssh_pass`}}",
+      "ssh_wait_timeout": "20m",
+
+      "shutdown_command": "echo {{user `ssh_pass`}} | sudo -S shutdown -P now",
+
+      "boot_command" : [
+        "<esc><esc><enter><wait>",
+        "/install/vmlinuz noapic ",
+        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/trusty64-preseed.cfg ",
+        "debian-installer=de_DE.UTF-8 auto ",
+        "locale=de_DE ",
+        "kbd-chooser/method=de ",
+        "hostname={{ .Name }} ",
+        "fb=false debconf/frontend=noninteractive ",
+        "keyboard-configuration/modelcode=pc105 ",
+        "keyboard-configuration/layout=German ",
+        "keyboard-configuration/variant=German ",
+        "localechooser/translation/warn-light=true ",
+        "localechooser/translation/warn-severe=true ",
+        "console-setup/ask_detect=false ",
+        "initrd=/install/initrd.gz -- <enter>"
+      ]
+
+    }
+
+  ]
+
+}

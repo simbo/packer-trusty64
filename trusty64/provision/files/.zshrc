@@ -1,5 +1,5 @@
 # custom prompt
-PROMPT='%{%F{green}%}%n%{%f%} %B%{%F{magenta}%}%~%{%f%}%b $(git_super_status)
+PROMPT='%{%F{green}%}%n%{%f%}%{%F{white}%}@%{%f%}%{%F{cyan}%}%m%{%f%} %B%{%F{magenta}%}%~%{%f%}%b $(git_super_status)
  %B%{%F{cyan}%}➜%{%f%}%b '
 RPROMPT=''
 

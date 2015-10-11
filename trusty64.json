@@ -3,6 +3,7 @@
   "variables": {
     "version": "0.3.0",
     "boxname": "trusty64",
+    "vbox_ga_iso": "http://download.virtualbox.org/virtualbox/4.3.30/VBoxGuestAdditions_4.3.30.iso",
     "vagrant_user_name": "vagrant",
     "vagrant_user_pass": "vagrant"
   },
@@ -32,6 +33,7 @@
       "iso_checksum": "9e5fecc94b3925bededed0fdca1bd417",
       "iso_checksum_type": "md5",
       "guest_additions_mode": "upload",
+      "guest_additions_url": "{{ user `vbox_ga_iso` }}",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "http_directory" : "{{ user `boxname` }}/htdocs",
       "http_port_min" : 9000,

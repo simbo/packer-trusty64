@@ -22,4 +22,4 @@ $APT_GET_QUIET -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-
 
 echo_c "Install Packages..."
 
-$APT_GET_QUIET install curl vim mc htop iotop iftop nfs-common git zsh
+$APT_GET_QUIET install curl vim mc htop iotop iftop tree nfs-common git zsh

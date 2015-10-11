@@ -1,6 +1,7 @@
 {
 
   "variables": {
+    "version": "0.3.0",
     "boxname": "trusty64",
     "vagrant_user_name": "vagrant",
     "vagrant_user_pass": "vagrant"
@@ -83,9 +84,9 @@
 
   "post-processors": [
     {
-      "output": "build/{{ user `boxname` }}.box",
       "type": "vagrant",
-      "keep_input_artifact": true
+      "output": "build/{{ user `boxname` }}.box",
+      "keep_input_artifact": false
     }
   ]
 

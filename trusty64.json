@@ -49,6 +49,8 @@
         "hostname={{ user `boxname` }} ",
         "fb=false debconf/frontend=noninteractive ",
         "kbd-chooser/method=de ",
+        "keymap=de ",
+        "debian-installer/keymap=de ",
         "keyboard-configuration/modelcode=pc105 ",
         "keyboard-configuration/layout=German ",
         "keyboard-configuration/variant=German ",

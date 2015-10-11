@@ -47,11 +47,11 @@ rm -rf /tmp/*
 
 echo_c "Cleaning up apt..."
 
-apt-get -y -qq autoremove --purge
 apt-get -y -qq install deborphan
 while [ -n "$(deborphan --guess-all --libdevel)" ]; do
     deborphan --guess-all --libdevel | xargs apt-get -y purge
 done
+apt-get -y -qq autoremove --purge
 apt-get -y -qq purge deborphan dialog
 apt-get -y -qq autoclean
 apt-get -y -qq clean
@@ -104,6 +104,11 @@ swapoff $swappart
 dd if=/dev/zero of=$swappart
 mkswap -f $swappart
 swapon $swappart
+
+echo_c "Zero out the free space..."
+
+dd if=/dev/zero of=/EMPTY bs=1M
+rm -f /EMPTY
 
 # Make sure we wait until all the data is written to disk, otherwise
 # Packer might quit too early before the large files are deleted

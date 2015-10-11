@@ -11,12 +11,14 @@ before_install:
   - sudo apt-get -y -qq update
   - sudo apt-get -y -qq install virtualbox
 install:
-  - wget --no-check-certificate --output-document packer.zip $PACKER_URL
-  - unzip -d packer packer.zip
-  - wget --no-check-certificate --output-document atlas-upload-cli.tar.gz $ATLASCLI_URL
-  - tar xzf atlas-upload-cli.tar.gz -C atlas-upload-cli
+  - wget --no-check-certificate --output-document $PWD/packer.zip $PACKER_URL
+  - unzip -d $PWD/packer $PWD/packer.zip
+  - wget --no-check-certificate --output-document $PWD/atlas-upload-cli.tar.gz $ATLASCLI_URL
+  - mkdir -p $PWD/atlas-upload-cli
+  - tar xzf $PWD/atlas-upload-cli.tar.gz -C $PWD/atlas-upload-cli
   - export PATH=$PATH:$PWD/atlas-upload-cli:$PWD/packer
 script:
+  - cd $PWD
   - packer validate trusty64.json
   - packer build trusty64.json
 branches:

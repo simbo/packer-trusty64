@@ -17,7 +17,7 @@
           "modifyvm", "{{.Name}}",
           "--vram", "32",
           "--memory", "512",
-          "--cpus", "2",
+          "--cpus", "1",
           "--usb", "off",
           "--audio", "none",
           "--nic1", "nat"

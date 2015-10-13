@@ -93,14 +93,12 @@
     }
   ],
 
-  "push": [
-    {
-      "name": "{{ user `atlas_artifact` }}",
-      "include": [
-        "{{ user `boxname` }}.json",
-        "{{ user `boxname` }}/"
-      ]
-    }
-  ]
+  "push": {
+    "name": "{{ user `atlas_artifact` }}",
+    "include": [
+      "{{ user `boxname` }}.json",
+      "{{ user `boxname` }}/"
+    ]
+  }
 
 }

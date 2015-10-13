@@ -1,5 +1,5 @@
-simbo-packer
-============
+packer-trusty64
+===============
 
   > My packer templates.
 

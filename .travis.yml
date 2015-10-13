@@ -3,23 +3,22 @@ rvm:
 - 2.0.0
 env:
   global:
-    - PWD=`pwd`
-    - PACKER_URL=https://dl.bintray.com/mitchellh/packer/packer_0.8.6_linux_amd64.zip
-    - ATLASCLI_URL=https://github.com/hashicorp/atlas-upload-cli/releases/download/v0.2.0/atlas-upload-cli_0.2.0_linux_amd64.tar.gz
-    - secure: aoqUpZP2Q0ptKgAkPfpiJDNr+rdT1g230y26dFnfRhoA/gG/2ZLgSp9BolIl/TUFHRKDHPBblzzRTKHEm1RGapBOkZPiodXEErTJp5RuI23pmJFAY6DCVAj+lqhKpF/+qH4D9CEaqArtIcdfetS2YfNI6801PJ7ez41OSrXQge5nzboMkUM4cr+jv8lIGyHem44R2hHUA4+rypEF7Y0KvsjMVoJLmV7HgxTJHnlaTue1X6wTMmR+BK2CRyqCyub/ehfwx29Ay7k4XRGgAslGC47ogqw92/4ftopyPdJDqNlmCeE8BPQMFHwNlA6bjTL7T6g31AXVhhga6USWnS4voVIr16PWDjHqtQrzV2D6LY7lIeBYolZSH5G1t12ZnpySHxbjuD4MgGIkT/IgGosnCMaMFRUIk9kTeCFa5TSv5yCMEYVD3A9w90jLUBEEIzwltYbHOdLPuaW9B5y3d6quAYRqx2O4x/rtLw01J3jv65R6WML9vvemGk4a52HA5A9J615fJ9LOPjvRpHCQMZgQ2kTe21nOEZyA3KPT2ZgTlCjoAmnboUMiglti1ExofSgw+elH08FUMvdp2Q18Wqo6PNif2t+vhoWn5kQgoDxvQitSCN+aUB5/dk86asoauJPAeISJRb4M3rarWd6tWhqhsmlh5vKJN4nDqULRZVAgTs0=
+  - PWD=`pwd`
+  - PACKER_URL=https://dl.bintray.com/mitchellh/packer/packer_0.8.6_linux_amd64.zip
+  - secure: vubQ5l8P6Cry571kND8jRdr77sGl9H27tX54axfZSLzWP6Z5AzOsRotVulB3lCycLYEtagP92ktqkfFNhG9olyJRvmgjUvs4i6aHK8swLwOlT0E5/DSqL3+P9gvVlGRQ1UXd4f+WoVZMNJUkux9NWNNNFZ3dXK4JrpBYhPis6XQ5bSI413GRWZy2+0cgmXMo6ByWxeCYMWDRfQjIbbXBV0LJhq13dyPrpR13WOUxJPh53lBIN52a20Q2rfIufzu5D2MIWz62F8oLiP5/dZlae79QzoVTq7fdMlR1Ib6/UbQwjqw6JYLg6HT/ZJ1azJ9TnOnihIRMjP8AB5SdScREyd1g8gcPcfgS5Y3GaK7JaLXa9HNJRzg1E+Nj7otRbxP4lvCj+XllLT6dEjUT+EPkPizpKER0kFQm8dHUSxm/fcCmeEhceZNhZbTXz3D68jBMg/zO8d+2zeNH4zkx/uwHv6wSWDdcTXhtexK0gc0xyG68ULeP3RtDUlV7rFCa5W7A13ueHZbF6BVgPUlKwZuXeg0323MvaT3LoqEns3hW9XIjiThpSHq8bxdPWinwwr4b+lrCP1C3GVMTdQSYzsN/gtgjBPQYG9o8IbyEF9MLc8PCglrKv4odGNBUzGLs+f00opyvQKnd9/md1UzyypQE1InmhItQVYkR97wMH3ahFXw=
 sudo: false
 branches:
   only:
-    - master
+  - master
 install:
-  - wget --no-check-certificate --output-document $PWD/packer.zip $PACKER_URL
-  - unzip -d $PWD/packer $PWD/packer.zip
-  - export PATH=$PWD/packer:$PATH
+- wget --no-check-certificate --output-document $PWD/packer.zip $PACKER_URL
+- unzip -d $PWD/packer $PWD/packer.zip
+- export PATH=$PWD/packer:$PATH
 script:
-  - for tpl in *.json; do packer validate $tpl; done
+- packer validate trusty64.json
 deploy:
   provider: script
-  script: for tpl in *.json; do packer push $tpl; done
+  script: packer push trusty64.json
   skip_cleanup: true
-  # on:
-  #   tags: true
+  on:
+    tags: true

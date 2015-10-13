@@ -97,7 +97,7 @@
     "name": "{{ user `atlas_artifact` }}",
     "include": [
       "{{ user `boxname` }}.json",
-      "{{ user `boxname` }}/"
+      "{{ user `boxname` }}/**/*"
     ]
   }
 

@@ -3,6 +3,7 @@
   "variables": {
     "version": "0.3.0",
     "boxname": "trusty64",
+    "info_url": "https://github.com/simbo/packer-trusty64#box-info",
     "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso",
     "iso_md5": "9e5fecc94b3925bededed0fdca1bd417",
     "vbox_ga_iso_url": "http://download.virtualbox.org/virtualbox/4.3.30/VBoxGuestAdditions_4.3.30.iso",
@@ -106,6 +107,7 @@
       "metadata": {
         "provider": "virtualbox",
         "version": "{{ user `version` }}",
+        "description": "{{ user `info_url` }}",
         "created_at": "{{ timestamp }}"
       }
     }

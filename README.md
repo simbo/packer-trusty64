@@ -22,12 +22,12 @@ packer-trusty64
 This is a [packer](https://packer.io/) template for the vagrant box 
 [simbo/trusty64](https://atlas.hashicorp.com/simbo/boxes/trusty64).
 
-Use vagrant box: `vagrant init simbo/trusty64`
-
-Available providers: `virtualbox`
-
 
 ### Box Info
+
+Usage: `vagrant init simbo/trusty64`
+
+Available providers: `virtualbox` (~ 384 MB)
 
 **Ubuntu *“Trusty Tahr”* 14.04.3 LTS Server amd64**
 

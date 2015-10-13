@@ -21,5 +21,5 @@ deploy:
   provider: script
   script: for tpl in *.json; do packer push $tpl; done
   skip_cleanup: true
-  on:
-    tags: true
+  # on:
+  #   tags: true

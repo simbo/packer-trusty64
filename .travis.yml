@@ -16,10 +16,10 @@ install:
   - unzip -d $PWD/packer $PWD/packer.zip
   - export PATH=$PWD/packer:$PATH
 script:
-  - packer validate trusty64.json
+  - for $tpl in *.json; do packer validate $tpl; done
 deploy:
   provider: script
-  script: packer push trusty64.json
+  script: for $tpl in *.json; do packer push $tpl; done
   skip_cleanup: true
   on:
     tags: true

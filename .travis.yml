@@ -8,20 +8,13 @@ env:
     - ATLASCLI_URL=https://github.com/hashicorp/atlas-upload-cli/releases/download/v0.2.0/atlas-upload-cli_0.2.0_linux_amd64.tar.gz
     - secure: aoqUpZP2Q0ptKgAkPfpiJDNr+rdT1g230y26dFnfRhoA/gG/2ZLgSp9BolIl/TUFHRKDHPBblzzRTKHEm1RGapBOkZPiodXEErTJp5RuI23pmJFAY6DCVAj+lqhKpF/+qH4D9CEaqArtIcdfetS2YfNI6801PJ7ez41OSrXQge5nzboMkUM4cr+jv8lIGyHem44R2hHUA4+rypEF7Y0KvsjMVoJLmV7HgxTJHnlaTue1X6wTMmR+BK2CRyqCyub/ehfwx29Ay7k4XRGgAslGC47ogqw92/4ftopyPdJDqNlmCeE8BPQMFHwNlA6bjTL7T6g31AXVhhga6USWnS4voVIr16PWDjHqtQrzV2D6LY7lIeBYolZSH5G1t12ZnpySHxbjuD4MgGIkT/IgGosnCMaMFRUIk9kTeCFa5TSv5yCMEYVD3A9w90jLUBEEIzwltYbHOdLPuaW9B5y3d6quAYRqx2O4x/rtLw01J3jv65R6WML9vvemGk4a52HA5A9J615fJ9LOPjvRpHCQMZgQ2kTe21nOEZyA3KPT2ZgTlCjoAmnboUMiglti1ExofSgw+elH08FUMvdp2Q18Wqo6PNif2t+vhoWn5kQgoDxvQitSCN+aUB5/dk86asoauJPAeISJRb4M3rarWd6tWhqhsmlh5vKJN4nDqULRZVAgTs0=
 sudo: false
-addons:
-  apt:
-    packages:
-    - virtualbox
 install:
   - wget --no-check-certificate --output-document $PWD/packer.zip $PACKER_URL
   - unzip -d $PWD/packer $PWD/packer.zip
-  - wget --no-check-certificate --output-document $PWD/atlas-upload-cli.tar.gz $ATLASCLI_URL
-  - mkdir -p $PWD/atlas-upload-cli
-  - tar xzf $PWD/atlas-upload-cli.tar.gz -C $PWD/atlas-upload-cli
-  - export PATH=$PATH:$PWD/atlas-upload-cli:$PWD/packer
-  - cd $PWD
+  - export PATH=$PWD/packer:$PATH
 script:
-  - packer validate trusty64.json && packer build trusty64.json
-branches:
-  only:
-    - master
+  - packer validate trusty64.json
+deploy:
+  provider: script
+  script: packer push trusty64.json
+  skip_cleanup: true

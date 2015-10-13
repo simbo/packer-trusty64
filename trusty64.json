@@ -4,6 +4,7 @@
     "version": "0.3.0",
     "boxname": "trusty64",
     "vbox_ga_iso": "http://download.virtualbox.org/virtualbox/4.3.30/VBoxGuestAdditions_4.3.30.iso",
+    "atlas_artifact": "simbo/trusty64",
     "vagrant_user_name": "vagrant",
     "vagrant_user_pass": "vagrant"
   },
@@ -89,6 +90,16 @@
       "type": "vagrant",
       "output": "build/{{ user `boxname` }}.box",
       "keep_input_artifact": false
+    }
+  ],
+
+  "push": [
+    {
+      "name": "{{ user `atlas_artifact` }}",
+      "include": [
+        "{{ user `boxname` }}.json",
+        "{{ user `boxname` }}/"
+      ]
     }
   ]
 

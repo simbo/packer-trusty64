@@ -115,7 +115,16 @@
     "name": "{{ user `atlas_artifact` }}",
     "base_dir": ".",
     "include": [
-      "{{ user `boxname` }}/**/*"
+      "{{ user `boxname` }}/htdocs/preseed.cfg",
+      "{{ user `boxname` }}/provision.sh",
+      "{{ user `boxname` }}/provision/files/.zshenv",
+      "{{ user `boxname` }}/provision/files/.zshrc",
+      "{{ user `boxname` }}/provision/scripts/apt.sh",
+      "{{ user `boxname` }}/provision/scripts/cleanup.sh",
+      "{{ user `boxname` }}/provision/scripts/node.sh",
+      "{{ user `boxname` }}/provision/scripts/vagrant.sh",
+      "{{ user `boxname` }}/provision/scripts/vbox-guest-additions.sh",
+      "{{ user `boxname` }}/provision/scripts/zsh.sh"
     ]
   }
 

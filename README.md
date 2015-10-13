@@ -1,40 +1,84 @@
 packer-trusty64
 ===============
 
-  > My packer templates.
+  > Packer template for [simbo/trusty-64](https://atlas.hashicorp.com/simbo/boxes/trusty64).
 
 ---
 
 <!-- MarkdownTOC -->
 
-- [Local testing](#local-testing)
+- [About](#about)
+    - [Box Info](#box-info)
+- [Building locally](#building-locally)
+- [Releasing](#releasing)
 
 <!-- /MarkdownTOC -->
 
 ---
 
 
-## Local testing
+## About
+
+This is a [packer](https://packer.io/) template for the vagrant box 
+[simbo/trusty64](https://atlas.hashicorp.com/simbo/boxes/trusty64).
+
+Use vagrant box: `vagrant init simbo/trusty64`
+
+Available providers: `virtualbox`
+
+
+### Box Info
+
+**Ubuntu *“Trusty Tahr”* 14.04.3 LTS Server amd64**
+
+Using english locales by default and supporting german locales. Set up with 
+german keyboard config, german apt-sources and using Europe/Berlin as default 
+timezone.
+
+Default vagrant config with vagrant insecure key and passwordless sudo.
+
+Installed software:
+  - `git` (via ppa:git-core/ppa)
+  - `zsh` as default shell with `oh-my-zsh` and `zsh-git-prompt`
+  - `node.js` v4.1.2 with `npm` v3.3.6, installed via `nvm`
+  - `openssh-server`
+  - `build-essential`
+  - `dkms`
+  - `nfs-common`
+  - `curl`
+  - `vim`
+  - `mc`
+  - `htop`
+  - `iotop`
+  - `iftop`
+  - `tree`
+
+
+## Building locally
 
 Requirements:
   [packer](https://packer.io/),
   [vagrant](https://www.vagrantup.com/),
   [VirtualBox](https://www.virtualbox.org/)
 
-You can place a respective distribution image within `iso/`.
+Remove the `atlas` post-processor section from the template to avoid publishing 
+when building and testing locally. (Still waiting for a cli flag to 
+[disable a post-processor](https://github.com/mitchellh/packer/issues/2679)...)
+
+You can place a distribution image for installation at `iso/trusty64.iso`.
 
 ``` sh
 # inpect template properties
-packer inspect <template>
+packer inspect trusty64.json
 
 # validate template
-packer validate <template>
+packer validate trusty64.json
 
 # build template
-packer build [-force] [-debug] <template>
+packer build [-force] [-debug] trusty64.json
 
 # test vagrant box
-vagrant box add <boxname> <boxfile>
+vagrant box add <boxname> build/trusty64.json
 vagrant init <boxname>
 vagrant up
 
@@ -47,3 +91,11 @@ rm -rf .vagrant Vagrantfile
 # remove built and temporary files
 rm -rf build output-* packer_cache
 ```
+
+
+## Releasing
+
+The master branch of this repo is automatically tested by travis-ci using packer
+validation test. Tagged commits are pushed to atlas where successful builds are 
+published.
+

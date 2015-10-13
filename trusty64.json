@@ -112,7 +112,11 @@
   ],
 
   "push": {
-    "name": "{{ user `atlas_artifact` }}"
+    "name": "{{ user `atlas_artifact` }}",
+    "base_dir": ".",
+    "include": [
+      "{{ user `boxname` }}/**/*"
+    ]
   }
 
 }

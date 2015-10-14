@@ -108,7 +108,7 @@
         "metadata": {
           "provider": "virtualbox",
           "version": "{{ user `version` }}",
-          "description": "{{ user `info_url` }}",
+          "description": "See box description at {{ user `info_url` }}",
           "created_at": "{{ timestamp }}"
         }
       }

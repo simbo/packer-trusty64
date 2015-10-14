@@ -40,7 +40,7 @@ Default vagrant config with vagrant insecure key and passwordless sudo.
 Installed software:
   - **git** (via ppa:git-core/ppa)
   - **zsh** as default shell with **oh-my-zsh** and **zsh-git-prompt**
-  - **node.js** v4.1.2 with **npm** v3.3.6, installed via **nvm**
+  - **node.js** v4.2.1 LTS (via **nvm**) with **npm** v3.3.6
   - **VirtualBox Guest Additions** v4.3.0
   - **openssh-server**
   - **build-essential**
@@ -62,9 +62,9 @@ Requirements:
   [vagrant](https://www.vagrantup.com/),
   [VirtualBox](https://www.virtualbox.org/)
 
-Remove the `atlas` post-processor section from the template to avoid publishing 
-when building and testing locally. (Still waiting for a cli flag to 
-[disable a post-processor](https://github.com/mitchellh/packer/issues/2679)...)
+Temporarily remove the `atlas` post-processor section from the template to 
+avoid publishing when building and testing locally. (Still waiting for a cli 
+flag to [disable a post-processor](https://github.com/mitchellh/packer/issues/2679)…)
 
 You can place a distribution image for installation at `iso/trusty64.iso`.
 

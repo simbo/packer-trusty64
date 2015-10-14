@@ -5,7 +5,7 @@
 # =======
 ###
 
-echo_c "Removing all linux kernels except the currrent one..."
+echo_c "Removing all linux kernels except the current one..."
 
 dpkg --list | awk '{ print $2 }' | grep 'linux-image-3.*-generic' | grep -v $(uname -r) | xargs apt-get -y purge
 

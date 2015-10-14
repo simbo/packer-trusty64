@@ -38,20 +38,21 @@ timezone.
 Default vagrant config with vagrant insecure key and passwordless sudo.
 
 Installed software:
-  - `git` (via ppa:git-core/ppa)
-  - `zsh` as default shell with `oh-my-zsh` and `zsh-git-prompt`
-  - `node.js` v4.1.2 with `npm` v3.3.6, installed via `nvm`
-  - `openssh-server`
-  - `build-essential`
-  - `dkms`
-  - `nfs-common`
-  - `curl`
-  - `vim`
-  - `mc`
-  - `htop`
-  - `iotop`
-  - `iftop`
-  - `tree`
+  - **git** (via ppa:git-core/ppa)
+  - **zsh** as default shell with **oh-my-zsh** and **zsh-git-prompt**
+  - **node.js** v4.1.2 with **npm** v3.3.6, installed via **nvm**
+  - **VirtualBox Guest Additions** v4.3.0
+  - **openssh-server**
+  - **build-essential**
+  - **dkms**
+  - **nfs-common**
+  - **curl**
+  - **vim**
+  - **mc**
+  - **htop**
+  - **iotop**
+  - **iftop**
+  - **tree**
 
 
 ## Building locally

@@ -23,5 +23,6 @@ nvm alias default $NODE_VERSION
 echo_c "Installing npm v${NPM_VERSION}..."
 
 npm install -g npm@$NPM_VERSION
+npm cache clean
 npm config set cache-lock-stale 604800000
 npm config set cache-min 86400

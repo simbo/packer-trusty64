@@ -91,26 +91,28 @@
   ],
 
   "post-processors": [
-    {
-      "type": "vagrant",
-      "output": "build/{{ user `boxname` }}.box",
-      "compression_level": 9,
-      "keep_input_artifact": false
-    },
-    {
-      "type": "atlas",
-      "only": [
-        "virtualbox-iso"
-      ],
-      "artifact": "{{ user `atlas_artifact` }}",
-      "artifact_type": "vagrant.box",
-      "metadata": {
-        "provider": "virtualbox",
-        "version": "{{ user `version` }}",
-        "description": "{{ user `info_url` }}",
-        "created_at": "{{ timestamp }}"
+    [
+      {
+        "type": "vagrant",
+        "output": "build/{{ user `boxname` }}.box",
+        "compression_level": 9,
+        "keep_input_artifact": false
+      },
+      {
+        "type": "atlas",
+        "only": [
+          "virtualbox-iso"
+        ],
+        "artifact": "{{ user `atlas_artifact` }}",
+        "artifact_type": "vagrant.box",
+        "metadata": {
+          "provider": "virtualbox",
+          "version": "{{ user `version` }}",
+          "description": "{{ user `info_url` }}",
+          "created_at": "{{ timestamp }}"
+        }
       }
-    }
+    ]
   ],
 
   "push": {

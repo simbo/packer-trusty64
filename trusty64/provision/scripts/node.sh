@@ -6,8 +6,8 @@
 ###
 
 NVM_PATH="${VAGRANT_HOME}/.nvm"
-NODE_VERSION="4.2.1"
-NPM_VERSION="3.3.6"
+NODE_VERSION="5.0.0"
+NPM_VERSION="3.4.0"
 
 echo_c "Installing nvm..."
 

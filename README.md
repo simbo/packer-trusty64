@@ -8,7 +8,7 @@ packer-trusty64
 <!-- MarkdownTOC -->
 
 - [About](#about)
-  - [Box Info](#box-info)
+    - [Box Info](#box-info)
 - [Building locally](#building-locally)
 - [Releasing](#releasing)
 
@@ -79,7 +79,7 @@ packer validate trusty64.json
 packer build [-force] [-debug] trusty64.json
 
 # test vagrant box
-vagrant box add <boxname> build/trusty64.json
+vagrant box add <boxname> build/trusty64.box
 vagrant init <boxname>
 vagrant up
 

@@ -5,9 +5,9 @@
 # =======================
 ###
 
-NODE_VERSION="5.0.0"
-NPM_VERSION="3.4.0"
 NVM_PATH="/opt/nvm"
+NODE_VERSION="5.1.1"
+NPM_VERSION="3.5.1"
 
 echo_c "Installing nvm..."
 groupadd nvm

@@ -8,7 +8,7 @@ packer-trusty64
 <!-- MarkdownTOC -->
 
 - [About](#about)
-    - [Box Info](#box-info)
+  - [Box Info](#box-info)
 - [Building locally](#building-locally)
 - [Releasing](#releasing)
 
@@ -40,7 +40,7 @@ Default vagrant config with vagrant insecure key and passwordless sudo.
 Installed software:
   - **git** (via ppa:git-core/ppa)
   - **zsh** as default shell with **oh-my-zsh** and **zsh-git-prompt**
-  - **node.js** v4.2.1 LTS (via **nvm**) with **npm** v3.3.6
+  - **node.js** v5.1.1 (via **nvm**) with **npm** v3.5.1
   - **VirtualBox Guest Additions** v4.3.0
   - **openssh-server**
   - **build-essential**

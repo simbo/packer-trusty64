@@ -21,4 +21,4 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 source $HOME/.zsh-git-prompt/zshrc.sh
 
 # nvm
-source $HOME/.nvm/nvm.sh
+source /opt/nvm/nvm.sh

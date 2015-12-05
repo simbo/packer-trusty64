@@ -21,14 +21,14 @@ export NVM_DIR=${NVM_PATH}
 EOL
 fi
 
-export NVM_DIR=$NVM_STORAGE
+export NVM_DIR=$NVM_PATH
 source $NVM_PATH/nvm.sh
 
 echo_c "Installing node.js v${NODE_VERSION}..."
 
 nvm install $NODE_VERSION
 nvm alias default $NODE_VERSION
-ln -s ${NVM_PATH}/versions/node/v${NODE_VERSION} ${NVM_PATH}/versions/node/current
+ln -s $NVM_PATH/versions/node/v$NODE_VERSION $NVM_PATH/versions/node/current
 
 echo_c "Installing npm v${NPM_VERSION}..."
 

@@ -12,10 +12,14 @@ NPM_VERSION="3.5.1"
 echo_c "Installing nvm..."
 git clone git://github.com/creationix/nvm.git $NVM_PATH && cd $NVM_PATH && git checkout `git describe --abbrev=0 --tags`
 
-cat >>/etc/profile <<EOL
+if [ -z $(grep -q "export NVM_DIR=${NVM_PATH}" "/etc/profile") ]; then
+    cat >>/etc/profile <<EOL
+
+# nvm
 export NVM_DIR=${NVM_PATH}
 [ -s "${NVM_PATH}/nvm.sh" ] && . "${NVM_PATH}/nvm.sh"
 EOL
+fi
 
 export NVM_DIR=$NVM_STORAGE
 source $NVM_PATH/nvm.sh

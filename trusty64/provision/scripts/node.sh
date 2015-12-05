@@ -23,7 +23,7 @@ echo_c "Installing nvm..."
 git clone git://github.com/creationix/nvm.git $NVM_PATH && cd $NVM_PATH && git checkout `git describe --abbrev=0 --tags`
 
 
-if ! grep -q "# nvm" /etc/profile; then
+if ! sudo grep -q "# nvm" /etc/profile; then
     sudo echo "$NVM_ENV_SCRIPT" >>/etc/profile
 fi
 

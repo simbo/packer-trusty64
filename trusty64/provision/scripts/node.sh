@@ -14,7 +14,7 @@ git clone git://github.com/creationix/nvm.git $NVM_PATH && cd $NVM_PATH && git c
 
 cat >>/etc/profile <<EOL
 export NVM_DIR=${NVM_PATH}
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "${NVM_PATH}/nvm.sh" ] && . "${NVM_PATH}/nvm.sh"
 EOL
 
 export NVM_DIR=$NVM_STORAGE

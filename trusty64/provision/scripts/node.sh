@@ -9,27 +9,26 @@ NVM_PATH="${VAGRANT_HOME}/.nvm"
 NODE_VERSION="5.1.1"
 NPM_VERSION="3.5.1"
 
-echo_c "Installing nvm..."
-git clone git://github.com/creationix/nvm.git $NVM_PATH && cd $NVM_PATH && git checkout `git describe --abbrev=0 --tags`
-
-if ! grep -q "# nvm" "/etc/profile"; then
-    cat >>/etc/profile <<EOL
+NVM_ENV_SCRIPT=$(cat <<EOL
 
 # nvm
-export NVM_DIR=${NVM_PATH}
-[ -s "\${NVM_DIR}/nvm.sh" ] && . "\${NVM_DIR}/nvm.sh"
-EOL
-fi
-
-if ! grep -q "# nvm" "${VAGRANT_HOME}/.zshenv"; then
-    cat >>$VAGRANT_HOME/.zshenv <<EOL
-
-# nvm
-if [[ "\$(which nvm)" == "nvm not found" ]]; then
+if ! $(command -v nvm); then
     export NVM_DIR=${NVM_PATH}
     [ -s "\${NVM_DIR}/nvm.sh" ] && . "\${NVM_DIR}/nvm.sh"
 fi
 EOL
+)
+
+echo_c "Installing nvm..."
+git clone git://github.com/creationix/nvm.git $NVM_PATH && cd $NVM_PATH && git checkout `git describe --abbrev=0 --tags`
+
+
+if ! grep -q "# nvm" /etc/profile; then
+    sudo echo "$NVM_ENV_SCRIPT" >>/etc/profile
+fi
+
+if ! grep -q "# nvm" $VAGRANT_HOME/.zshenv; then
+    echo "$NVM_ENV_SCRIPT" >>$VAGRANT_HOME/.zshenv
 fi
 
 export NVM_DIR=$NVM_PATH

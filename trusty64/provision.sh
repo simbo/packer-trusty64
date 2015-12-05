@@ -21,5 +21,5 @@ source $PROVISION_SCRIPTS/zsh.sh
 source $PROVISION_SCRIPTS/customize.sh
 source $PROVISION_SCRIPTS/cleanup.sh
 
-rm -rf $PROVISION_DIR
 # cleanup provision files
+rm -rf $PROVISION_DIR

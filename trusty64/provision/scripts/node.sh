@@ -11,8 +11,8 @@ NPM_VERSION="3.5.1"
 
 echo_c "Installing nvm..."
 groupadd nvm
-usermod -G nvm vagrant
-usermod -G nvm root
+usermod -a -G nvm vagrant
+usermod -a -G nvm root
 git clone git://github.com/creationix/nvm.git $NVM_PATH && cd $NVM_PATH && git checkout `git describe --abbrev=0 --tags`
 mkdir -p /usr/local/nvm /usr/local/node
 chown -R root:nvm /usr/local/nvm

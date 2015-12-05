@@ -5,20 +5,20 @@
 # =======================
 ###
 
-NVM_PATH="/opt/nvm"
+NVM_PATH="${VAGRANT_HOME}/.nvm"
 NODE_VERSION="5.1.1"
 NPM_VERSION="3.5.1"
 
 echo_c "Installing nvm..."
-groupadd nvm
-usermod -a -G nvm vagrant
-usermod -a -G nvm root
 git clone git://github.com/creationix/nvm.git $NVM_PATH && cd $NVM_PATH && git checkout `git describe --abbrev=0 --tags`
-mkdir -p /usr/local/nvm /usr/local/node
-chown -R root:nvm /usr/local/nvm
-chmod -R 775 /usr/local/nvm
-cp $PROVISION_FILES/nvm.sh /etc/profile.d/nvm.sh
-source /etc/profile.d/nvm.sh
+
+cat >>/etc/profile <<EOL
+export NVM_DIR=${NVM_PATH}
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+EOL
+
+export NVM_DIR=$NVM_STORAGE
+source $NVM_PATH/nvm.sh
 
 echo_c "Installing node.js v${NODE_VERSION}..."
 

@@ -33,7 +33,7 @@ fi
 export NVM_DIR=$PROVISION_NVM_PATH
 source $NVM_DIR/nvm.sh
 
-echo_c "Installing node.js v${NODE_VERSION}..."
+echo_c "Installing node.js v${PROVISION_NODE_VERSION}..."
 
 nvm install $PROVISION_NODE_VERSION
 nvm alias default $PROVISION_NODE_VERSION

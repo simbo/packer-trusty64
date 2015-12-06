@@ -38,7 +38,7 @@ echo_c "Installing node.js v${PROVISION_NODE_VERSION}..."
 nvm install $PROVISION_NODE_VERSION
 nvm alias default $PROVISION_NODE_VERSION
 cd $PROVISION_NVM_PATH/versions/node
-ln -s v${PROVISION_NODE_VERSION} current
+ln -sf v${PROVISION_NODE_VERSION} current
 
 echo_c "Installing npm v${PROVISION_NPM_VERSION}..."
 

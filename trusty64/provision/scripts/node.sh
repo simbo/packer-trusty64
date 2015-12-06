@@ -12,7 +12,7 @@ PROVISION_NPM_VERSION="3.5.1"
 PROVISION_NVM_ENV_SCRIPT=$(cat <<EOL
 
 # nvm
-if ! $(command -v nvm); then
+if ! command -v nvm; then
     export NVM_DIR=${PROVISION_NVM_PATH}
     [ -s "\${NVM_DIR}/nvm.sh" ] && . "\${NVM_DIR}/nvm.sh"
 fi

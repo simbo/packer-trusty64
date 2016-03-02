@@ -4,7 +4,7 @@ rvm:
 env:
   global:
   - PWD=`pwd`
-  - PACKER_URL=https://dl.bintray.com/mitchellh/packer/packer_0.8.6_linux_amd64.zip
+  - PACKER_URL=https://releases.hashicorp.com/packer/0.9.0/packer_0.9.0_linux_amd64.zip
   - secure: vubQ5l8P6Cry571kND8jRdr77sGl9H27tX54axfZSLzWP6Z5AzOsRotVulB3lCycLYEtagP92ktqkfFNhG9olyJRvmgjUvs4i6aHK8swLwOlT0E5/DSqL3+P9gvVlGRQ1UXd4f+WoVZMNJUkux9NWNNNFZ3dXK4JrpBYhPis6XQ5bSI413GRWZy2+0cgmXMo6ByWxeCYMWDRfQjIbbXBV0LJhq13dyPrpR13WOUxJPh53lBIN52a20Q2rfIufzu5D2MIWz62F8oLiP5/dZlae79QzoVTq7fdMlR1Ib6/UbQwjqw6JYLg6HT/ZJ1azJ9TnOnihIRMjP8AB5SdScREyd1g8gcPcfgS5Y3GaK7JaLXa9HNJRzg1E+Nj7otRbxP4lvCj+XllLT6dEjUT+EPkPizpKER0kFQm8dHUSxm/fcCmeEhceZNhZbTXz3D68jBMg/zO8d+2zeNH4zkx/uwHv6wSWDdcTXhtexK0gc0xyG68ULeP3RtDUlV7rFCa5W7A13ueHZbF6BVgPUlKwZuXeg0323MvaT3LoqEns3hW9XIjiThpSHq8bxdPWinwwr4b+lrCP1C3GVMTdQSYzsN/gtgjBPQYG9o8IbyEF9MLc8PCglrKv4odGNBUzGLs+f00opyvQKnd9/md1UzyypQE1InmhItQVYkR97wMH3ahFXw=
 sudo: false
 install:

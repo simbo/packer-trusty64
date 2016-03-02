@@ -47,3 +47,4 @@ npm install -g npm@$PROVISION_NPM_VERSION
 npm cache clean
 npm config set cache-lock-stale 604800000
 npm config set cache-min 86400
+npm config set progress=false

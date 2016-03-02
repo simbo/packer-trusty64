@@ -1,7 +1,7 @@
 {
 
   "variables": {
-    "version": "0.8.0",
+    "version": "0.8.1",
     "boxname": "trusty64",
     "info_url": "https://github.com/simbo/packer-trusty64#box-info",
     "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso",

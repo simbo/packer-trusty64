@@ -4,10 +4,10 @@
     "version": "0.9.0",
     "boxname": "trusty64",
     "info_url": "https://github.com/simbo/packer-trusty64#box-info",
-    "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso",
-    "iso_md5": "9e5fecc94b3925bededed0fdca1bd417",
     "vbox_ga_iso_url": "http://download.virtualbox.org/virtualbox/4.3.30/VBoxGuestAdditions_4.3.30.iso",
     "vbox_ga_iso_sha256": "432c2da1d9a939de7ba1d2cfb10595031374af9ce66417a43979d1794beedbb1",
+    "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.4-server-amd64.iso",
+    "iso_md5": "2ac1f3e0de626e54d05065d6f549fa3a",
     "atlas_artifact": "simbo/trusty64",
     "vagrant_user_name": "vagrant",
     "vagrant_user_pass": "vagrant"

@@ -6,8 +6,8 @@
 ###
 
 PROVISION_NVM_PATH="${VAGRANT_HOME}/.nvm"
-PROVISION_NODE_VERSION="5.7.0"
-PROVISION_NPM_VERSION="3.7.5"
+PROVISION_NODE_VERSION="6.0.0"
+PROVISION_NPM_VERSION="3.8.8"
 
 PROVISION_NVM_ENV_SCRIPT=$(cat <<EOL
 
@@ -47,5 +47,4 @@ npm install -g npm@$PROVISION_NPM_VERSION
 npm cache clean
 npm config set cache-lock-stale 604800000
 npm config set cache-min 86400
-npm config set progress false
 npm config set loglevel error

@@ -8,7 +8,7 @@ packer-trusty64
 <!-- MarkdownTOC -->
 
 - [About](#about)
-    - [Box Info](#box-info)
+  - [Box Info](#box-info)
 - [Building locally](#building-locally)
 - [Releasing](#releasing)
 
@@ -29,7 +29,7 @@ Usage: `vagrant init simbo/trusty64`
 
 Available providers: `virtualbox` (~ 384 MB)
 
-**Ubuntu *“Trusty Tahr”* 14.04.3 LTS Server amd64**
+**Ubuntu *“Trusty Tahr”* 14.04.4 LTS Server amd64**
 
 Using english locales by default and supporting german locales. Set up with 
 german keyboard config, german apt-sources and using Europe/Berlin as default 
@@ -40,7 +40,7 @@ Default vagrant config with vagrant insecure key and passwordless sudo.
 Installed software:
   - **git** (via ppa:git-core/ppa)
   - **zsh** as default shell with **oh-my-zsh** and **zsh-git-prompt**
-  - **node.js** v5.1.1 (via **nvm**) with **npm** v3.5.1
+  - **node.js** v6.0.0 (via **nvm**) with **npm** v3.8.8
   - **VirtualBox Guest Additions** v4.3.0
   - **openssh-server**
   - **build-essential**
